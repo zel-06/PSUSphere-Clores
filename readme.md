@@ -15,3 +15,11 @@
 - Automatic fake data generator for testing  
 
 ---
+
+## 🛠 Built With
+- Python  
+- Django  
+- SQLite (default database)  
+- Faker library  
+
+---
