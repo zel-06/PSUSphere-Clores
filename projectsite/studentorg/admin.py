@@ -23,3 +23,9 @@ class OrgMemberAdmin(admin.ModelAdmin):
             return member.program
         except Student.DoesNotExist:
             return None
+        
+@admin.register(College)
+class CollegeAdmin(admin.ModelAdmin):
+    list_display = ("college_name", "created_at", "updated_at")
+    search_fields = ("college_name",)
+    list_filter = ("created_at",)
