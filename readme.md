@@ -23,3 +23,10 @@
 - Faker library  
 
 ---
+
+## ⚙️ Installation Guide
+```bash
+1. Clone the repository:
+git clone <repo-url>
+cd PSUSphere
+```
