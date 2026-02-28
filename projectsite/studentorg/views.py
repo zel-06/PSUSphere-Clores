@@ -43,6 +43,7 @@ class OrgMemberListView(ListView):
     context_object_name = 'orgmembers'
     template_name = 'orgmember_list.html'
     paginate_by = 5
+    ordering = ['student']
 
 class OrgMemberCreateView(CreateView):
     model = OrgMember
