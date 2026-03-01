@@ -73,7 +73,15 @@ class OrgMemberListView(ListView):
     context_object_name = 'orgmembers'
     template_name = 'orgmember_list.html'
     paginate_by = 5
-    ordering = ['student']
+    
+    def get_ordering(self):
+        sort_by = self.request.GET.get("sort_by")
+        if sort_by == "student_name":
+            return["student__firstname", "student__middlename", "student__lastname"]
+        allowed = ["student__firstname", "student__middlename", "student__lastname", "date_joined"]
+        if sort_by in allowed:
+            return sort_by
+        return "student__firstname"
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -174,7 +182,13 @@ class ProgramListView(ListView):
     context_object_name = 'program'
     template_name = 'program_list.html'
     paginate_by = 5
-    ordering = ['prog_name']
+    
+    def get_ordering(self):
+        allowed = ["prog_name", "college__college_name"]
+        sort_by = self.request.GET.get("sort_by")
+        if sort_by in allowed:
+            return sort_by
+        return "prog_name"
 
     def get_queryset(self):
         qs = super().get_queryset()
