@@ -36,6 +36,8 @@ class HomePageView(ListView):
             .count()
         )
         context["students_joined_this_year"] = count
+        context["total_organizations"] = Organization.objects.count()
+        context["total_programs"] = Program.objects.count()
         return context
 
 class OrganizationList(ListView):
